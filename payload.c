@@ -5,9 +5,15 @@
 
 void* foo() {
 	while(1) {
-		printf("Payload running\n");
+		void* baseAddress = getBaseAddress();
+		printf("Base address: %p\n", baseAddress);
 		sleep(1);
 	}
+}
+
+void* getBaseAddress() {
+	const struct mach_header* mh = _dyld_get_image_header(0);
+	return (void*)mh;
 }
 
 __attribute((constructor))
