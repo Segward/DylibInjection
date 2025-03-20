@@ -1,1 +1,5 @@
+#!/bin/bash
 roblox.sh
+
+# Ignore vim swap files
+*.swp
