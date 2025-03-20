@@ -2,18 +2,13 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <mach-o/dyld.h>
 
 void* foo() {
 	while(1) {
-		void* baseAddress = getBaseAddress();
-		printf("Base address: %p\n", baseAddress);
+		printf("Name: %s\n", _dyld_get_image_name(0));
 		sleep(1);
 	}
-}
-
-void* getBaseAddress() {
-	const struct mach_header* mh = _dyld_get_image_header(0);
-	return (void*)mh;
 }
 
 __attribute((constructor))
