@@ -1,6 +1,6 @@
 ## Dylib Injection
 
-This is a simple dylib injection tool that injects a dylib into a target process. The dylib is injected using the `DYLD_INSERT_LIBRARIES` environment variable.
+The dylib is injected using the `DYLD_INSERT_LIBRARIES` environment variable.
 
 ### Usage
 

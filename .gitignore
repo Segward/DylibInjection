@@ -2,3 +2,9 @@
 
 # Ignore vim swap files
 *.swp
+
+# Ignore dump files
+*.dmp
+core.*
+dump*
+

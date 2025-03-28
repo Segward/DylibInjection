@@ -19,9 +19,9 @@ void* foo() {
   
   uintptr_t offset = 0x38d3f1a;
   uintptr_t address = (uintptr_t)header + offset;
-
+  
   for (int i = 0; i < 15; ++i) {
-    printf("%c", *(char*)(address + i));
+    printf("\033[31m%c\033[0m", *(char*)(address + i));
   }
 
   printf("\n");
