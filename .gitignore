@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ignore bash files
+*.sh
+
 # Ignore vim swap files
 *.swp
 

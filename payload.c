@@ -8,7 +8,7 @@
 
 void* foo() {
   const char* name = _dyld_get_image_name(1);
-  if (strstr(name, "RobloxPlayer") == NULL) {
+  if (strstr(name, "Player") == NULL) {
     return NULL;
   }
 
