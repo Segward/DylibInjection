@@ -17,12 +17,11 @@ void* foo() {
     return NULL;
   }
 
-  uintptr_t offset = 0x1b255c;
-  uintptr_t print = (uintptr_t)header + offset;
-  void (*func)(int, const char*) = (void (*)(int, const char*))print;
+  uintptr_t pAddr = (uintptr_t)header + 0x1b255c;
+  void (*print)(int, const char*) = (void (*)(int, const char*))pAddr;
   
   while (1) {
-    func(0, "Hello from injected code\n");
+    print(0, "Hello from injected code");
     sleep(1);
   }
 
