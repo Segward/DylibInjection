@@ -16,15 +16,16 @@ void* foo() {
   if (header == NULL) {
     return NULL;
   }
+
+  uintptr_t offset = 0x1b255c;
+  uintptr_t print = (uintptr_t)header + offset;
+  void (*func)(int, const char*) = (void (*)(int, const char*))print;
   
-  uintptr_t offset = 0x38d3f1a;
-  uintptr_t address = (uintptr_t)header + offset;
-  
-  for (int i = 0; i < 15; ++i) {
-    printf("\033[31m%c\033[0m", *(char*)(address + i));
+  while (1) {
+    func(0, "Hello from injected code\n");
+    sleep(1);
   }
 
-  printf("\n");
   return NULL;
 }
 
